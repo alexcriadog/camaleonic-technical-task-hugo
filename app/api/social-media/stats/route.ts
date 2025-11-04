@@ -79,12 +79,59 @@ export async function GET() {
             totalReach: p.totalReach,
         }));
 
+        // Calculate growth trends (comparing recent vs older data)
+        const sortedFollowers = [...followers].sort((a, b) =>
+            new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        const recentFollowerGrowth = sortedFollowers.slice(0, Math.ceil(sortedFollowers.length / 2));
+        const olderFollowerGrowth = sortedFollowers.slice(Math.ceil(sortedFollowers.length / 2));
+
+        const recentAvgGrowth = recentFollowerGrowth.length > 0
+            ? recentFollowerGrowth.reduce((sum, f) => sum + (f.netGrowth || 0), 0) / recentFollowerGrowth.length
+            : 0;
+        const olderAvgGrowth = olderFollowerGrowth.length > 0
+            ? olderFollowerGrowth.reduce((sum, f) => sum + (f.netGrowth || 0), 0) / olderFollowerGrowth.length
+            : 0;
+
+        const followerGrowthTrend = olderAvgGrowth > 0
+            ? Math.round(((recentAvgGrowth - olderAvgGrowth) / olderAvgGrowth) * 100 * 10) / 10
+            : 0;
+
+        // Calculate engagement trend (recent vs older posts)
+        const sortedPosts = [...posts].sort((a, b) =>
+            new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        const recentPosts = sortedPosts.slice(0, Math.ceil(sortedPosts.length / 2));
+        const olderPosts = sortedPosts.slice(Math.ceil(sortedPosts.length / 2));
+
+        const recentAvgEngagement = recentPosts.length > 0
+            ? recentPosts.reduce((sum, p) => sum + (p.engagementRate || 0), 0) / recentPosts.length
+            : 0;
+        const olderAvgEngagement = olderPosts.length > 0
+            ? olderPosts.reduce((sum, p) => sum + (p.engagementRate || 0), 0) / olderPosts.length
+            : 0;
+
+        const engagementTrend = olderAvgEngagement > 0
+            ? Math.round(((recentAvgEngagement - olderAvgEngagement) / olderAvgEngagement) * 100 * 10) / 10
+            : 0;
+
+        // Calculate reach trend
+        const recentTotalReach = recentPosts.reduce((sum, p) => sum + (p.reach || 0), 0);
+        const olderTotalReach = olderPosts.reduce((sum, p) => sum + (p.reach || 0), 0);
+        const reachTrend = olderTotalReach > 0
+            ? Math.round(((recentTotalReach - olderTotalReach) / olderTotalReach) * 100 * 10) / 10
+            : 0;
+
         const dashboardStats = {
             totalFollowers: Math.round(totalFollowers / followers.length) || 24563,
             engagementRate: Math.round(avgEngagementRate * 10) / 10,
             totalPosts: posts.length,
             totalReach,
             growthRate: Math.round(growthRate * 10) / 10,
+            followerGrowthTrend,
+            engagementTrend,
+            reachTrend,
+            postsThisMonth: recentPosts.length,
         };
 
         // Generate engagement data from posts grouped by date

@@ -36,6 +36,10 @@ export interface DashboardStats {
     totalPosts: number;
     totalReach: number;
     growthRate: number;
+    followerGrowthTrend: number;
+    engagementTrend: number;
+    reachTrend: number;
+    postsThisMonth: number;
 }
 
 export interface EngagementMetric {

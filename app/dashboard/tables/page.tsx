@@ -3,10 +3,47 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Plus, Download } from "lucide-react";
+import { useSocialMediaData } from "@/lib/hooks/use-social-media-data";
+import { getPlatformColor, formatNumber } from "@/lib/utils";
+import { TableSkeleton } from "@/components/dashboard/table-skeleton";
+import { Search, Plus, Download, RefreshCw } from "lucide-react";
 
 export default function TablesPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const { posts, followers, isLoading, refetch, error } = useSocialMediaData();
+
+  if (isLoading) {
+    return <TableSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto flex min-h-[400px] items-center justify-center p-6">
+        <div className="text-center">
+          <p className="text-destructive mb-4">Failed to load table data</p>
+          <p className="text-muted-foreground text-sm mb-4">{error}</p>
+          <Button onClick={refetch} variant="outline">
+            <RefreshCw className="mr-2 size-4" />
+            Try Again
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Filter data based on search
+  const filteredPosts = posts.filter(
+    (post) =>
+      post.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.platform.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.date.includes(searchTerm)
+  );
+
+  const filteredFollowers = followers.filter(
+    (follower) =>
+      follower.platform.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      follower.date.includes(searchTerm)
+  );
 
   return (
     <div className="container mx-auto p-6">
@@ -79,63 +116,50 @@ export default function TablesPage() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              <tr className="hover:bg-muted/50">
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  2024-01-15
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs font-medium">
-                    Instagram
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">2,345</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">156</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">89</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">12.5K</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <Button variant="ghost" size="sm">
-                    Edit
-                  </Button>
-                </td>
-              </tr>
-              <tr className="hover:bg-muted/50">
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  2024-01-14
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="bg-pink-100 text-pink-700 rounded px-2 py-1 text-xs font-medium">
-                    Facebook
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">1,876</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">234</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">145</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">18.3K</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <Button variant="ghost" size="sm">
-                    Edit
-                  </Button>
-                </td>
-              </tr>
-              <tr className="hover:bg-muted/50">
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  2024-01-13
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="bg-sky-100 text-sky-700 rounded px-2 py-1 text-xs font-medium">
-                    Twitter
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">3,421</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">89</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">567</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">25.7K</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <Button variant="ghost" size="sm">
-                    Edit
-                  </Button>
-                </td>
-              </tr>
+              {filteredPosts.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="text-muted-foreground px-6 py-8 text-center text-sm"
+                  >
+                    No posts found
+                  </td>
+                </tr>
+              ) : (
+                filteredPosts.map((post) => (
+                  <tr key={post.id} className="hover:bg-muted/50">
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {post.date}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      <span
+                        className={`rounded px-2 py-1 text-xs font-medium capitalize ${getPlatformColor(
+                          post.platform
+                        )}`}
+                      >
+                        {post.platform}
+                      </span>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {post.likes.toLocaleString()}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {post.comments.toLocaleString()}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {post.shares.toLocaleString()}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {formatNumber(post.reach)}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      <Button variant="ghost" size="sm">
+                        Edit
+                      </Button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
@@ -174,71 +198,52 @@ export default function TablesPage() {
               </tr>
             </thead>
             <tbody className="divide-y">
-              <tr className="hover:bg-muted/50">
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  2024-01-15
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs font-medium">
-                    Instagram
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  12,345
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">+234</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">-12</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="text-green-600 font-medium">+222</span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <Button variant="ghost" size="sm">
-                    Edit
-                  </Button>
-                </td>
-              </tr>
-              <tr className="hover:bg-muted/50">
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  2024-01-14
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="bg-pink-100 text-pink-700 rounded px-2 py-1 text-xs font-medium">
-                    Facebook
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">8,976</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">+189</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">-23</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="text-green-600 font-medium">+166</span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <Button variant="ghost" size="sm">
-                    Edit
-                  </Button>
-                </td>
-              </tr>
-              <tr className="hover:bg-muted/50">
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  2024-01-13
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="bg-sky-100 text-sky-700 rounded px-2 py-1 text-xs font-medium">
-                    Twitter
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">3,242</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">+78</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">-5</td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <span className="text-green-600 font-medium">+73</span>
-                </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  <Button variant="ghost" size="sm">
-                    Edit
-                  </Button>
-                </td>
-              </tr>
+              {filteredFollowers.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className="text-muted-foreground px-6 py-8 text-center text-sm"
+                  >
+                    No follower data found
+                  </td>
+                </tr>
+              ) : (
+                filteredFollowers.map((follower) => (
+                  <tr key={follower.id} className="hover:bg-muted/50">
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {follower.date}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      <span
+                        className={`rounded px-2 py-1 text-xs font-medium capitalize ${getPlatformColor(
+                          follower.platform
+                        )}`}
+                      >
+                        {follower.platform}
+                      </span>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      {follower.followers.toLocaleString()}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      +{follower.newFollowers}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      -{follower.unfollows}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      <span className="text-green-600 font-medium">
+                        +{follower.netGrowth}
+                      </span>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm">
+                      <Button variant="ghost" size="sm">
+                        Edit
+                      </Button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
@@ -246,4 +251,3 @@ export default function TablesPage() {
     </div>
   );
 }
-
