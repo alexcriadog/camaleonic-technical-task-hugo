@@ -68,6 +68,17 @@ export default function DashboardHomePage() {
             today.
           </p>
         </div>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={refetch}
+            className="gap-2"
+          >
+            <RefreshCw className="size-4" />
+            Refresh
+          </Button>
+        </div>
       </div>
 
       {/* Stats Grid */}
