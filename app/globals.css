@@ -16,6 +16,8 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  --color-chart-neutral: var(--chart-neutral);
+  --color-chart-6: var(--chart-6);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -63,11 +65,9 @@
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  --chart-1: oklch(0.68 0.24 330); /* Magenta - Instagram */
+  --chart-2: oklch(0.5 0.26 260); /* Deep Blue - Facebook */
+  --chart-3: oklch(0.7 0.18 200); /* Bright Cyan - Twitter */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.141 0.005 285.823);
   --sidebar-primary: oklch(0.546 0.245 262.881);
@@ -97,11 +97,18 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  --chart-1: oklch(
+    0.75 0.28 330
+  ); /* Magenta - Instagram (brighter for dark mode) */
+  --chart-2: oklch(
+    0.6 0.28 260
+  ); /* Deep Blue - Facebook (brighter for dark mode) */
+  --chart-3: oklch(
+    0.78 0.22 200
+  ); /* Bright Cyan - Twitter (brighter for dark mode) */
+  --chart-neutral: oklch(
+    0.7 0.02 0
+  ); /* Grey - Single metrics (brighter for dark mode) */
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.623 0.214 259.815);
