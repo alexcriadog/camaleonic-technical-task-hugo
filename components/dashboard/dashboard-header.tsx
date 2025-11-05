@@ -2,17 +2,12 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  GalleryVerticalEnd,
-  BarChart3,
-  Home,
-  Table2,
-  LogOut,
-} from "lucide-react";
+import { BarChart3, Home, Table2, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/lib/store/auth-store";
 import { authClient } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Logo } from "@/components/logo";
 
 export function DashboardHeader() {
   const router = useRouter();
@@ -32,12 +27,7 @@ export function DashboardHeader() {
     <header className="border-b bg-background">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-md">
-              <GalleryVerticalEnd className="size-5" />
-            </div>
-            <span className="text-xl font-semibold">Camaleonic Analytics</span>
-          </Link>
+          <Logo href="/dashboard" priority />
 
           <nav className="hidden items-center gap-6 md:flex">
             <Link
