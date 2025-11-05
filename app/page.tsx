@@ -1,65 +1,311 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/lib/store/auth-store";
+import { ThemeToggle } from "@/components/theme-toggle";
+import {
+  GalleryVerticalEnd,
+  BarChart3,
+  Table2,
+  TrendingUp,
+  LineChart,
+  LogIn,
+  UserPlus,
+  LayoutDashboard,
+  Loader2,
+} from "lucide-react";
 
 export default function Home() {
+  const { isAuthenticated, user, isLoading } = useAuthStore();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex min-h-screen flex-col">
+      {/* Header */}
+      <header className="border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          <div className="flex items-center gap-2">
+            <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-md">
+              <GalleryVerticalEnd className="size-5" />
+            </div>
+            <span className="text-xl font-semibold">Camaleonic Analytics</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            {isLoading ? (
+              <div className="flex items-center gap-2">
+                <Loader2 className="text-muted-foreground size-4 animate-spin" />
+                <span className="text-muted-foreground text-sm">
+                  Loading...
+                </span>
+              </div>
+            ) : isAuthenticated ? (
+              <>
+                <span className="text-muted-foreground hidden text-sm sm:inline">
+                  {user?.name}
+                </span>
+                <Button asChild>
+                  <Link href="/dashboard" className="gap-2">
+                    <LayoutDashboard className="size-4" />
+                    Go to Dashboard
+                  </Link>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link href="/login" className="gap-2">
+                    <LogIn className="size-4" />
+                    Login
+                  </Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/signup" className="gap-2">
+                    <UserPlus className="size-4" />
+                    Sign Up
+                  </Link>
+                </Button>
+              </>
+            )}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </header>
+
+      {/* Hero Section */}
+      <main className="flex-1">
+        <section className="container mx-auto px-4 py-24 md:py-32">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-8 flex items-center justify-center gap-4">
+              <div className="flex -space-x-2">
+                <div className="bg-blue-100 text-blue-600 flex size-10 items-center justify-center rounded-full border-2 border-white">
+                  <svg
+                    className="size-5"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>Facebook</title>
+                    <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
+                  </svg>
+                </div>
+                <div className="bg-pink-100 text-pink-600 flex size-10 items-center justify-center rounded-full border-2 border-white">
+                  <svg
+                    className="size-5"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>Instagram</title>
+                    <path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" />
+                  </svg>
+                </div>
+                <div className="bg-sky-100 text-sky-600 flex size-10 items-center justify-center rounded-full border-2 border-white">
+                  <svg
+                    className="size-5"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>X</title>
+                    <path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+              Social Media Analytics
+              <span className="text-primary block">Dashboard Platform</span>
+            </h1>
+            <p className="text-muted-foreground mt-6 text-lg leading-8">
+              Centralize your social media data from Instagram, Facebook,
+              Twitter, and more. Visualize performance metrics, analyze trends,
+              and make data-driven decisions with our comprehensive analytics
+              dashboard.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-4">
+              <Button size="lg" asChild>
+                <Link href="/signup">Get Started</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/login">Sign In</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Grid */}
+        <section className="bg-muted/50 py-24">
+          <div className="container mx-auto px-4">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold">
+                Everything You Need to Analyze Your Social Media
+              </h2>
+              <p className="text-muted-foreground mx-auto max-w-2xl">
+                Access powerful tools to track, analyze, and optimize your
+                social media performance across all platforms.
+              </p>
+            </div>
+            <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+              <div className="bg-background group flex flex-col rounded-lg border p-6 transition-shadow hover:shadow-lg">
+                <div className="bg-primary/10 text-primary mb-4 flex size-12 items-center justify-center rounded-lg transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <BarChart3 className="size-6" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">
+                  Interactive Dashboard
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Visualize your social media data with dynamic charts and
+                  graphs. Apply filters to drill down into specific metrics and
+                  time periods.
+                </p>
+              </div>
+
+              <div className="bg-background group flex flex-col rounded-lg border p-6 transition-shadow hover:shadow-lg">
+                <div className="bg-primary/10 text-primary mb-4 flex size-12 items-center justify-center rounded-lg transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <LineChart className="size-6" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">
+                  Real-time Analytics
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Track engagement, reach, and performance metrics in real-time
+                  across all your connected social media accounts.
+                </p>
+              </div>
+
+              <div className="bg-background group flex flex-col rounded-lg border p-6 transition-shadow hover:shadow-lg">
+                <div className="bg-primary/10 text-primary mb-4 flex size-12 items-center justify-center rounded-lg transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Table2 className="size-6" />
+                </div>
+                <h3 className="mb-2 text-xl font-semibold">Data Tables</h3>
+                <p className="text-muted-foreground text-sm">
+                  View detailed data in organized tables. Add, edit, and manage
+                  your records with an intuitive interface and CRUD operations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Platform Features */}
+        <section className="py-24">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-5xl">
+              <div className="mb-16 text-center">
+                <h2 className="mb-4 text-3xl font-bold">
+                  Powerful Features for Social Media Success
+                </h2>
+                <p className="text-muted-foreground mx-auto max-w-2xl">
+                  Our platform provides comprehensive tools to help you
+                  understand and grow your social media presence.
+                </p>
+              </div>
+              <div className="grid gap-8 md:grid-cols-2">
+                <div className="flex gap-4">
+                  <div className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-lg">
+                    <TrendingUp className="size-5" />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-semibold">Performance Tracking</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Monitor likes, comments, shares, and engagement rates
+                      across all your social media platforms in one unified
+                      dashboard.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-lg">
+                    <BarChart3 className="size-5" />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-semibold">Visual Analytics</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Transform complex data into easy-to-understand charts and
+                      graphs. Choose from multiple visualization types to suit
+                      your needs.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-lg">
+                    <GalleryVerticalEnd className="size-5" />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-semibold">Custom Filters</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Apply advanced filters to analyze specific time periods,
+                      platforms, or content types. Save your favorite filter
+                      configurations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-lg">
+                    <Table2 className="size-5" />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 font-semibold">Data Management</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Full CRUD operations on your data. Add new records, update
+                      existing entries, and maintain your social media database
+                      effortlessly.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-muted/50 py-24">
+          <div className="container mx-auto px-4">
+            <div className="bg-primary text-primary-foreground mx-auto max-w-4xl rounded-2xl p-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold">
+                Ready to Transform Your Social Media Strategy?
+              </h2>
+              <p className="mb-8 text-lg opacity-90">
+                Join thousands of businesses using Camaleonic Analytics to make
+                smarter decisions about their social media presence.
+              </p>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Button size="lg" variant="secondary" asChild>
+                  <Link href="/signup">Start Now</Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="ghost"
+                  className="text-primary-foreground border border-primary-foreground hover:bg-primary-foreground/10"
+                  asChild
+                >
+                  <Link href="/login">Sign In</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div className="flex items-center gap-2">
+              <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
+                <GalleryVerticalEnd className="size-4" />
+              </div>
+              <span className="font-medium">Camaleonic Analytics</span>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Built with Next.js, Better-auth, and MongoDB Atlas
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
