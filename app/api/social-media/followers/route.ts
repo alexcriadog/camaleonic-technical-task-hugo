@@ -1,8 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { requireAuth } from "@/lib/api-auth";
 
 const MOCK_API_URL = process.env.NEXT_PUBLIC_MOCK_API_URL;
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+    // Check authentication
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+        return authResult;
+    }
+
     try {
         if (!MOCK_API_URL) {
             return NextResponse.json(
@@ -25,7 +32,8 @@ export async function GET() {
             {
                 success: true,
                 data,
-            }
+            },
+            { status: 200 }
         );
     } catch (error) {
         console.error("Error fetching followers:", error);
@@ -40,7 +48,13 @@ export async function GET() {
     }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+    // Check authentication
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+        return authResult;
+    }
+
     try {
         if (!MOCK_API_URL) {
             return NextResponse.json(
@@ -65,10 +79,13 @@ export async function POST(request: Request) {
 
         const data = await response.json();
 
-        return NextResponse.json({
-            success: true,
-            data,
-        });
+        return NextResponse.json(
+            {
+                success: true,
+                data,
+            },
+            { status: 201 }
+        );
     } catch (error) {
         console.error("Error creating follower record:", error);
         return NextResponse.json(
@@ -81,7 +98,13 @@ export async function POST(request: Request) {
     }
 }
 
-export async function PUT(request: Request) {
+export async function PUT(request: NextRequest) {
+    // Check authentication
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+        return authResult;
+    }
+
     try {
         if (!MOCK_API_URL) {
             return NextResponse.json(
@@ -116,10 +139,13 @@ export async function PUT(request: Request) {
 
         const data = await response.json();
 
-        return NextResponse.json({
-            success: true,
-            data,
-        });
+        return NextResponse.json(
+            {
+                success: true,
+                data,
+            },
+            { status: 200 }
+        );
     } catch (error) {
         console.error("Error updating follower record:", error);
         return NextResponse.json(
@@ -132,7 +158,13 @@ export async function PUT(request: Request) {
     }
 }
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
+    // Check authentication
+    const authResult = await requireAuth();
+    if (authResult instanceof NextResponse) {
+        return authResult;
+    }
+
     try {
         if (!MOCK_API_URL) {
             return NextResponse.json(
@@ -163,7 +195,8 @@ export async function DELETE(request: Request) {
             {
                 success: true,
                 message: "Follower record deleted successfully",
-            }
+            },
+            { status: 200 }
         );
     } catch (error) {
         console.error("Error deleting follower record:", error);
