@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 export function SignupForm({
   className,
@@ -22,36 +23,170 @@ export function SignupForm({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const validateName = (name: string) => {
+    if (!name.trim()) {
+      return "Full name is required";
+    }
+    if (name.trim().length < 2) {
+      return "Name must be at least 2 characters";
+    }
+    if (name.trim().length > 50) {
+      return "Name must be less than 50 characters";
+    }
+    return "";
+  };
+
+  const validateEmail = (email: string) => {
+    if (!email) {
+      return "Email is required";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  };
+
+  const validatePassword = (password: string) => {
+    if (!password) {
+      return "Password is required";
+    }
+    if (password.length < 8) {
+      return "Password must be at least 8 characters";
+    }
+    if (!/(?=.*[a-z])/.test(password)) {
+      return "Password must contain at least one lowercase letter";
+    }
+    if (!/(?=.*[A-Z])/.test(password)) {
+      return "Password must contain at least one uppercase letter";
+    }
+    if (!/(?=.*\d)/.test(password)) {
+      return "Password must contain at least one number";
+    }
+    return "";
+  };
+
+  const validateConfirmPassword = (confirmPass: string) => {
+    if (!confirmPass) {
+      return "Please confirm your password";
+    }
+    if (confirmPass !== password) {
+      return "Passwords do not match";
+    }
+    return "";
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setName(value);
+    if (nameError && value) {
+      setNameError(validateName(value));
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (emailError && value) {
+      setEmailError(validateEmail(value));
+    }
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPassword(value);
+    if (passwordError && value) {
+      setPasswordError(validatePassword(value));
+    }
+    // Also revalidate confirm password if it's already been filled
+    if (confirmPassword) {
+      setConfirmPasswordError(validateConfirmPassword(confirmPassword));
+    }
+  };
+
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = e.target.value;
+    setConfirmPassword(value);
+    if (confirmPasswordError && value) {
+      setConfirmPasswordError(validateConfirmPassword(value));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
+    // Validate all fields
+    const nameErr = validateName(name);
+    const emailErr = validateEmail(email);
+    const passwordErr = validatePassword(password);
+    const confirmPasswordErr = validateConfirmPassword(confirmPassword);
 
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters long");
+    setNameError(nameErr);
+    setEmailError(emailErr);
+    setPasswordError(passwordErr);
+    setConfirmPasswordError(confirmPasswordErr);
+
+    if (nameErr || emailErr || passwordErr || confirmPasswordErr) {
+      toast.error("Validation Error", {
+        description: "Please fix the errors in the form",
+      });
       return;
     }
 
     setLoading(true);
 
     try {
-      await authClient.signUp.email({
+      const response = await authClient.signUp.email({
         email,
         password,
         name,
       });
+
+      if (response.error) {
+        toast.error("Signup Failed", {
+          description:
+            response.error.message ||
+            "Failed to create account. Please try again.",
+        });
+        setLoading(false);
+        return;
+      }
+
+      toast.success("Account Created Successfully!", {
+        description: "Welcome! Redirecting to dashboard...",
+      });
       router.push("/dashboard");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to create account");
-    } finally {
+    } catch (err: unknown) {
+      // Handle different error formats
+      let errorMessage = "Failed to create account. Please try again.";
+
+      if (
+        err &&
+        typeof err === "object" &&
+        "error" in err &&
+        err.error &&
+        typeof err.error === "object" &&
+        "message" in err.error
+      ) {
+        errorMessage = String(err.error.message);
+      } else if (err && typeof err === "object" && "message" in err) {
+        errorMessage = String(err.message);
+      } else if (typeof err === "string") {
+        errorMessage = err;
+      }
+
+      toast.error("Signup Failed", {
+        description: errorMessage,
+      });
       setLoading(false);
     }
   };
@@ -59,14 +194,39 @@ export function SignupForm({
   const handleGitHubSignup = async () => {
     setLoading(true);
     try {
-      await authClient.signIn.social({
+      const response = await authClient.signIn.social({
         provider: "github",
         callbackURL: "/dashboard",
       });
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to sign up with GitHub"
-      );
+
+      if (response?.error) {
+        toast.error("GitHub Signup Failed", {
+          description:
+            response.error.message || "Failed to continue with GitHub",
+        });
+        setLoading(false);
+      }
+    } catch (err: unknown) {
+      let errorMessage = "Failed to continue with GitHub";
+
+      if (
+        err &&
+        typeof err === "object" &&
+        "error" in err &&
+        err.error &&
+        typeof err.error === "object" &&
+        "message" in err.error
+      ) {
+        errorMessage = String(err.error.message);
+      } else if (err && typeof err === "object" && "message" in err) {
+        errorMessage = String(err.message);
+      } else if (typeof err === "string") {
+        errorMessage = err;
+      }
+
+      toast.error("GitHub Signup Failed", {
+        description: errorMessage,
+      });
       setLoading(false);
     }
   };
@@ -84,11 +244,6 @@ export function SignupForm({
             Fill in the form below to create your account
           </p>
         </div>
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded text-sm">
-            {error}
-          </div>
-        )}
         <Field>
           <FieldLabel htmlFor="name">Full Name</FieldLabel>
           <Input
@@ -97,9 +252,16 @@ export function SignupForm({
             placeholder="John Doe"
             required
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleNameChange}
+            onBlur={() => setNameError(validateName(name))}
             disabled={loading}
+            className={
+              nameError ? "border-red-500 focus-visible:ring-red-500" : ""
+            }
           />
+          {nameError && (
+            <p className="text-red-500 text-sm mt-1">{nameError}</p>
+          )}
         </Field>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -109,13 +271,21 @@ export function SignupForm({
             placeholder="m@example.com"
             required
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
+            onBlur={() => setEmailError(validateEmail(email))}
             disabled={loading}
+            className={
+              emailError ? "border-red-500 focus-visible:ring-red-500" : ""
+            }
           />
-          <FieldDescription>
-            We&apos;ll use this to contact you. We will not share your email
-            with anyone else.
-          </FieldDescription>
+          {emailError ? (
+            <p className="text-red-500 text-sm mt-1">{emailError}</p>
+          ) : (
+            <FieldDescription>
+              We&apos;ll use this to contact you. We will not share your email
+              with anyone else.
+            </FieldDescription>
+          )}
         </Field>
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -124,12 +294,21 @@ export function SignupForm({
             type="password"
             required
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
+            onBlur={() => setPasswordError(validatePassword(password))}
             disabled={loading}
+            className={
+              passwordError ? "border-red-500 focus-visible:ring-red-500" : ""
+            }
           />
-          <FieldDescription>
-            Must be at least 8 characters long.
-          </FieldDescription>
+          {passwordError ? (
+            <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+          ) : (
+            <FieldDescription>
+              Must be at least 8 characters with uppercase, lowercase, and
+              number.
+            </FieldDescription>
+          )}
         </Field>
         <Field>
           <FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
@@ -138,10 +317,22 @@ export function SignupForm({
             type="password"
             required
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={handleConfirmPasswordChange}
+            onBlur={() =>
+              setConfirmPasswordError(validateConfirmPassword(confirmPassword))
+            }
             disabled={loading}
+            className={
+              confirmPasswordError
+                ? "border-red-500 focus-visible:ring-red-500"
+                : ""
+            }
           />
-          <FieldDescription>Please confirm your password.</FieldDescription>
+          {confirmPasswordError ? (
+            <p className="text-red-500 text-sm mt-1">{confirmPasswordError}</p>
+          ) : (
+            <FieldDescription>Please confirm your password.</FieldDescription>
+          )}
         </Field>
         <Field>
           <Button type="submit" disabled={loading}>
@@ -161,7 +352,7 @@ export function SignupForm({
               fill="currentColor"
             />
           </svg>
-          Sign up with GitHub
+          Continue with GitHub
         </Button>
         <Field>
           <FieldDescription className="px-6 text-center">
