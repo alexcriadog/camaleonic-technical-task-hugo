@@ -1,15 +1,37 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { useSocialMediaData } from "@/lib/hooks/use-social-media-data";
 import { TableSkeleton } from "@/components/dashboard/table-skeleton";
 import { DataTable } from "@/components/ui/data-table";
-import { postsColumns } from "@/components/dashboard/posts-columns";
-import { followersColumns } from "@/components/dashboard/followers-columns";
+import { createPostsColumns } from "@/components/dashboard/posts-columns";
+import { createFollowersColumns } from "@/components/dashboard/followers-columns";
+import { PlatformFilter } from "@/components/dashboard/platform-filter";
+import { AddRecordDialog } from "@/components/dashboard/add-record-dialog";
 import { Plus, Download, RefreshCw } from "lucide-react";
 
 export default function TablesPage() {
   const { posts, followers, isLoading, refetch, error } = useSocialMediaData();
+  const [postsFilter, setPostsFilter] = useState("");
+  const [followersFilter, setFollowersFilter] = useState("");
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+
+  // Create columns with delete callback
+  const postsColumns = useMemo(() => createPostsColumns(refetch), [refetch]);
+  const followersColumns = useMemo(
+    () => createFollowersColumns(refetch),
+    [refetch]
+  );
+
+  // Filter data based on platform
+  const filteredPosts = postsFilter
+    ? posts.filter((post) => post.platform === postsFilter)
+    : posts;
+
+  const filteredFollowers = followersFilter
+    ? followers.filter((follower) => follower.platform === followersFilter)
+    : followers;
 
   if (isLoading) {
     return <TableSkeleton />;
@@ -55,7 +77,11 @@ export default function TablesPage() {
             <Download className="size-4" />
             Export
           </Button>
-          <Button size="sm" className="gap-2">
+          <Button
+            size="sm"
+            className="gap-2"
+            onClick={() => setIsAddDialogOpen(true)}
+          >
             <Plus className="size-4" />
             Add Record
           </Button>
@@ -72,9 +98,13 @@ export default function TablesPage() {
         </div>
         <DataTable
           columns={postsColumns}
-          data={posts}
+          data={filteredPosts}
           searchKey="content"
-          searchPlaceholder="Search by content or platform..."
+          searchPlaceholder="Search by content..."
+          customFilter={
+            <PlatformFilter value={postsFilter} onChange={setPostsFilter} />
+          }
+          initialSorting={[{ id: "date", desc: true }]}
         />
       </div>
 
@@ -88,11 +118,23 @@ export default function TablesPage() {
         </div>
         <DataTable
           columns={followersColumns}
-          data={followers}
-          searchKey="platform"
-          searchPlaceholder="Search by platform or date..."
+          data={filteredFollowers}
+          customFilter={
+            <PlatformFilter
+              value={followersFilter}
+              onChange={setFollowersFilter}
+            />
+          }
+          initialSorting={[{ id: "date", desc: true }]}
         />
       </div>
+
+      {/* Add Record Dialog */}
+      <AddRecordDialog
+        open={isAddDialogOpen}
+        onOpenChange={setIsAddDialogOpen}
+        onSuccess={refetch}
+      />
     </div>
   );
 }

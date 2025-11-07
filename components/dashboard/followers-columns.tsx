@@ -1,25 +1,16 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import {
-  ArrowUpDown,
-  MoreHorizontal,
-  TrendingUp,
-  TrendingDown,
-} from "lucide-react";
+import { ArrowUpDown, TrendingUp, TrendingDown } from "lucide-react";
+import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { FollowerData } from "@/lib/types/social-media";
 import { getPlatformColor } from "@/lib/utils";
+import { FollowerActionsCell } from "./follower-actions-cell";
 
-export const followersColumns: ColumnDef<FollowerData>[] = [
+export const createFollowersColumns = (
+  onDelete: () => void
+): ColumnDef<FollowerData>[] => [
   {
     accessorKey: "date",
     header: ({ column }) => {
@@ -34,7 +25,9 @@ export const followersColumns: ColumnDef<FollowerData>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("date")}</div>
+      <div className="font-medium">
+        {format(new Date(row.getValue("date")), "PPP")}
+      </div>
     ),
   },
   {
@@ -44,7 +37,7 @@ export const followersColumns: ColumnDef<FollowerData>[] = [
       const platform = row.getValue("platform") as string;
       return (
         <span
-          className={`rounded px-2 py-1 text-xs font-medium capitalize ${getPlatformColor(
+          className={`rounded border px-2 py-1 text-xs font-medium capitalize ${getPlatformColor(
             platform
           )}`}
         >
@@ -150,31 +143,7 @@ export const followersColumns: ColumnDef<FollowerData>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const follower = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="size-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="size-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(follower.id)}
-            >
-              Copy record ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View details</DropdownMenuItem>
-            <DropdownMenuItem>Edit record</DropdownMenuItem>
-            <DropdownMenuItem className="text-red-600">
-              Delete record
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
+      return <FollowerActionsCell follower={follower} onDelete={onDelete} />;
     },
   },
 ];

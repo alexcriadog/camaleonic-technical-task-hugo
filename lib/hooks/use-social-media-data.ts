@@ -74,11 +74,14 @@ export function useSocialMediaData(): SocialMediaData {
                 error: null
             }));
 
+            // Add cache-busting timestamp when refetching
+            const cacheBuster = isRefetch ? `?t=${Date.now()}` : "";
+
             // Fetch all data in parallel with caching
             const [postsData, followersData, statsData] = await Promise.all([
-                fetchWithCache("/api/social-media/posts"),
-                fetchWithCache("/api/social-media/followers"),
-                fetchWithCache("/api/social-media/stats"),
+                fetchWithCache(`/api/social-media/posts${cacheBuster}`),
+                fetchWithCache(`/api/social-media/followers${cacheBuster}`),
+                fetchWithCache(`/api/social-media/stats${cacheBuster}`),
             ]);
 
             setData((prev) => ({

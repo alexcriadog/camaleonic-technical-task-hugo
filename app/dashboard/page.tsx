@@ -2,8 +2,13 @@
 
 import { useAuthStore } from "@/lib/store/auth-store";
 import { useSocialMediaData } from "@/lib/hooks/use-social-media-data";
-import { formatNumber } from "@/lib/utils";
+import {
+  formatNumber,
+  getPlatformBadgeColor,
+  getPlatformTextColor,
+} from "@/lib/utils";
 import { DashboardSkeleton } from "@/components/dashboard/dashboard-skeleton";
+import { format } from "date-fns";
 import {
   BarChart3,
   TrendingUp,
@@ -189,13 +194,9 @@ export default function DashboardHomePage() {
                   {platform.platform}
                 </h3>
                 <span
-                  className={`rounded-full px-2 py-1 text-xs font-medium ${
-                    platform.platform === "instagram"
-                      ? "bg-pink-100 text-pink-700"
-                      : platform.platform === "facebook"
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-sky-100 text-sky-700"
-                  }`}
+                  className={`rounded-full px-2 py-1 text-xs font-medium ${getPlatformBadgeColor(
+                    platform.platform
+                  )}`}
                 >
                   {platform.totalPosts} posts
                 </span>
@@ -240,7 +241,7 @@ export default function DashboardHomePage() {
                 <div>
                   <p className="font-medium">{post.content}</p>
                   <p className="text-muted-foreground text-sm capitalize">
-                    {post.platform} • {post.date}
+                    {post.platform} • {format(new Date(post.date), "PPP")}
                   </p>
                 </div>
                 <span className="text-green-600 text-sm">
@@ -271,13 +272,9 @@ export default function DashboardHomePage() {
                     </p>
                   </div>
                   <span
-                    className={`text-sm font-semibold ${
-                      post.platform === "instagram"
-                        ? "text-pink-600"
-                        : post.platform === "facebook"
-                        ? "text-blue-600"
-                        : "text-sky-600"
-                    }`}
+                    className={`text-sm font-semibold ${getPlatformTextColor(
+                      post.platform
+                    )}`}
                   >
                     {formatNumber(post.reach)}
                   </span>

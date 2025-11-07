@@ -31,12 +31,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { cn, getPlatformButtonColor } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchKey?: string;
   searchPlaceholder?: string;
+  filterKey?: string;
+  filterOptions?: { label: string; value: string }[];
+  customFilter?: React.ReactNode;
+  initialSorting?: SortingState;
 }
 
 export function DataTable<TData, TValue>({
@@ -44,8 +49,12 @@ export function DataTable<TData, TValue>({
   data,
   searchKey,
   searchPlaceholder = "Search...",
+  filterKey,
+  filterOptions,
+  customFilter,
+  initialSorting = [],
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [sorting, setSorting] = React.useState<SortingState>(initialSorting);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
@@ -75,18 +84,61 @@ export function DataTable<TData, TValue>({
   return (
     <div className="bg-background w-full space-y-4 rounded-lg border p-4 shadow-sm">
       <div className="flex items-center justify-between">
-        {searchKey && (
-          <Input
-            placeholder={searchPlaceholder}
-            value={
-              (table.getColumn(searchKey)?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table.getColumn(searchKey)?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
-        )}
+        <div className="flex items-center gap-2">
+          {searchKey && (
+            <Input
+              placeholder={searchPlaceholder}
+              value={
+                (table.getColumn(searchKey)?.getFilterValue() as string) ?? ""
+              }
+              onChange={(event) =>
+                table.getColumn(searchKey)?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+          )}
+          {customFilter}
+          {!customFilter && filterKey && filterOptions && (
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-muted-foreground">
+                Filter:
+              </span>
+              <div className="flex gap-1">
+                <Button
+                  variant={
+                    !table.getColumn(filterKey)?.getFilterValue()
+                      ? "default"
+                      : "outline"
+                  }
+                  size="sm"
+                  onClick={() => table.getColumn(filterKey)?.setFilterValue("")}
+                >
+                  All
+                </Button>
+                {filterOptions.map((option) => {
+                  const isActive =
+                    table.getColumn(filterKey)?.getFilterValue() ===
+                    option.value;
+                  return (
+                    <Button
+                      key={option.value}
+                      size="sm"
+                      onClick={() =>
+                        table.getColumn(filterKey)?.setFilterValue(option.value)
+                      }
+                      className={cn(
+                        "capitalize border transition-colors",
+                        getPlatformButtonColor(option.value, isActive)
+                      )}
+                    >
+                      {option.label}
+                    </Button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">

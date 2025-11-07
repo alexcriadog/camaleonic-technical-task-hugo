@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
-      "date": "2024-01-15",
+      "date": "2024-01-25",
       "platform": "instagram",
       "likes": 2345,
       "comments": 156,
@@ -13,7 +13,7 @@
     },
     {
       "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
-      "date": "2024-01-15",
+      "date": "2024-01-25",
       "platform": "twitter",
       "likes": 1890,
       "comments": 67,
@@ -24,7 +24,7 @@
     },
     {
       "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
-      "date": "2024-01-14",
+      "date": "2024-01-25",
       "platform": "facebook",
       "likes": 1876,
       "comments": 234,
@@ -35,7 +35,7 @@
     },
     {
       "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
-      "date": "2024-01-14",
+      "date": "2024-01-24",
       "platform": "instagram",
       "likes": 3421,
       "comments": 189,
@@ -46,7 +46,7 @@
     },
     {
       "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
-      "date": "2024-01-13",
+      "date": "2024-01-24",
       "platform": "twitter",
       "likes": 3421,
       "comments": 89,
@@ -57,7 +57,7 @@
     },
     {
       "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
-      "date": "2024-01-13",
+      "date": "2024-01-24",
       "platform": "facebook",
       "likes": 2567,
       "comments": 198,
@@ -68,7 +68,7 @@
     },
     {
       "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d",
-      "date": "2024-01-12",
+      "date": "2024-01-23",
       "platform": "instagram",
       "likes": 3100,
       "comments": 203,
@@ -79,7 +79,7 @@
     },
     {
       "id": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e",
-      "date": "2024-01-12",
+      "date": "2024-01-23",
       "platform": "twitter",
       "likes": 2890,
       "comments": 145,
@@ -90,7 +90,7 @@
     },
     {
       "id": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f",
-      "date": "2024-01-11",
+      "date": "2024-01-23",
       "platform": "facebook",
       "likes": 2200,
       "comments": 167,
@@ -101,7 +101,7 @@
     },
     {
       "id": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4a",
-      "date": "2024-01-11",
+      "date": "2024-01-22",
       "platform": "instagram",
       "likes": 4123,
       "comments": 267,
@@ -112,7 +112,7 @@
     },
     {
       "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b",
-      "date": "2024-01-10",
+      "date": "2024-01-22",
       "platform": "twitter",
       "likes": 4100,
       "comments": 124,
@@ -123,7 +123,7 @@
     },
     {
       "id": "f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6c",
-      "date": "2024-01-10",
+      "date": "2024-01-22",
       "platform": "facebook",
       "likes": 1987,
       "comments": 156,
@@ -134,7 +134,7 @@
     },
     {
       "id": "a3b4c5d6-e7f8-4a9b-0c1d-2e3f4a5b6c7d",
-      "date": "2024-01-09",
+      "date": "2024-01-21",
       "platform": "instagram",
       "likes": 2890,
       "comments": 178,
@@ -145,7 +145,7 @@
     },
     {
       "id": "b4c5d6e7-f8a9-4b0c-1d2e-3f4a5b6c7d8e",
-      "date": "2024-01-09",
+      "date": "2024-01-21",
       "platform": "twitter",
       "likes": 3567,
       "comments": 201,
@@ -156,7 +156,7 @@
     },
     {
       "id": "c5d6e7f8-a9b0-4c1d-2e3f-4a5b6c7d8e9f",
-      "date": "2024-01-08",
+      "date": "2024-01-21",
       "platform": "facebook",
       "likes": 1650,
       "comments": 145,
@@ -167,7 +167,7 @@
     },
     {
       "id": "d6e7f8a9-b0c1-4d2e-3f4a-5b6c7d8e9f0a",
-      "date": "2024-01-08",
+      "date": "2024-01-20",
       "platform": "instagram",
       "likes": 2134,
       "comments": 123,
@@ -178,7 +178,7 @@
     },
     {
       "id": "e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1b",
-      "date": "2024-01-07",
+      "date": "2024-01-20",
       "platform": "twitter",
       "likes": 2789,
       "comments": 167,
@@ -189,7 +189,7 @@
     },
     {
       "id": "f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2c",
-      "date": "2024-01-07",
+      "date": "2024-01-20",
       "platform": "facebook",
       "likes": 3245,
       "comments": 289,
@@ -200,7 +200,7 @@
     },
     {
       "id": "a9b0c1d2-e3f4-4a5b-6c7d-8e9f0a1b2c3d",
-      "date": "2024-01-06",
+      "date": "2024-01-19",
       "platform": "instagram",
       "likes": 3890,
       "comments": 234,
@@ -211,7 +211,7 @@
     },
     {
       "id": "b0c1d2e3-f4a5-4b6c-7d8e-9f0a1b2c3d4e",
-      "date": "2024-01-06",
+      "date": "2024-01-19",
       "platform": "twitter",
       "likes": 2456,
       "comments": 134,
@@ -222,7 +222,7 @@
     },
     {
       "id": "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5f",
-      "date": "2024-01-05",
+      "date": "2024-01-19",
       "platform": "facebook",
       "likes": 2890,
       "comments": 198,
@@ -233,7 +233,7 @@
     },
     {
       "id": "d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6a",
-      "date": "2024-01-05",
+      "date": "2024-01-18",
       "platform": "instagram",
       "likes": 3123,
       "comments": 189,
@@ -244,7 +244,7 @@
     },
     {
       "id": "e3f4a5b6-c7d8-4e9f-0a1b-2c3d4e5f6a7b",
-      "date": "2024-01-04",
+      "date": "2024-01-18",
       "platform": "twitter",
       "likes": 4567,
       "comments": 278,
@@ -255,7 +255,7 @@
     },
     {
       "id": "f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8c",
-      "date": "2024-01-04",
+      "date": "2024-01-18",
       "platform": "facebook",
       "likes": 2345,
       "comments": 167,
@@ -266,7 +266,7 @@
     },
     {
       "id": "a5b6c7d8-e9f0-4a1b-2c3d-4e5f6a7b8c9d",
-      "date": "2024-01-03",
+      "date": "2024-01-17",
       "platform": "instagram",
       "likes": 2789,
       "comments": 156,
@@ -277,7 +277,7 @@
     },
     {
       "id": "b6c7d8e9-f0a1-4b2c-3d4e-5f6a7b8c9d0e",
-      "date": "2024-01-03",
+      "date": "2024-01-17",
       "platform": "twitter",
       "likes": 3234,
       "comments": 189,
@@ -288,7 +288,7 @@
     },
     {
       "id": "c7d8e9f0-a1b2-4c3d-4e5f-6a7b8c9d0e1f",
-      "date": "2024-01-02",
+      "date": "2024-01-17",
       "platform": "facebook",
       "likes": 1987,
       "comments": 145,
@@ -299,7 +299,7 @@
     },
     {
       "id": "d8e9f0a1-b2c3-4d4e-5f6a-7b8c9d0e1f2a",
-      "date": "2024-01-02",
+      "date": "2024-01-16",
       "platform": "instagram",
       "likes": 3456,
       "comments": 223,
@@ -310,7 +310,7 @@
     },
     {
       "id": "e9f0a1b2-c3d4-4e5f-6a7b-8c9d0e1f2a3b",
-      "date": "2024-01-01",
+      "date": "2024-01-16",
       "platform": "twitter",
       "likes": 5234,
       "comments": 334,
@@ -321,7 +321,7 @@
     },
     {
       "id": "f0a1b2c3-d4e5-4f6a-7b8c-9d0e1f2a3b4c",
-      "date": "2024-01-01",
+      "date": "2024-01-16",
       "platform": "facebook",
       "likes": 4123,
       "comments": 289,
@@ -329,188 +329,1178 @@
       "reach": 29800,
       "content": "New Year wishes from our team",
       "engagementRate": 10.3
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "date": "2024-01-15",
+      "platform": "instagram",
+      "likes": 2987,
+      "comments": 178,
+      "shares": 145,
+      "reach": 19800,
+      "content": "Product update announcement",
+      "engagementRate": 8.9
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
+      "date": "2024-01-15",
+      "platform": "twitter",
+      "likes": 2145,
+      "comments": 98,
+      "shares": 312,
+      "reach": 21500,
+      "content": "Tech Tuesday insights",
+      "engagementRate": 7.9
+    },
+    {
+      "id": "c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f",
+      "date": "2024-01-15",
+      "platform": "facebook",
+      "likes": 2234,
+      "comments": 189,
+      "shares": 156,
+      "reach": 18900,
+      "content": "Community spotlight",
+      "engagementRate": 7.6
+    },
+    {
+      "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a",
+      "date": "2024-01-14",
+      "platform": "instagram",
+      "likes": 3567,
+      "comments": 234,
+      "shares": 189,
+      "reach": 24300,
+      "content": "Monday motivation quote",
+      "engagementRate": 9.5
+    },
+    {
+      "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b",
+      "date": "2024-01-14",
+      "platform": "twitter",
+      "likes": 2890,
+      "comments": 156,
+      "shares": 445,
+      "reach": 26700,
+      "content": "Industry Monday thoughts",
+      "engagementRate": 8.7
+    },
+    {
+      "id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c",
+      "date": "2024-01-14",
+      "platform": "facebook",
+      "likes": 2456,
+      "comments": 201,
+      "shares": 178,
+      "reach": 20500,
+      "content": "Weekend recap highlights",
+      "engagementRate": 8.2
+    },
+    {
+      "id": "a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d",
+      "date": "2024-01-13",
+      "platform": "instagram",
+      "likes": 3789,
+      "comments": 267,
+      "shares": 201,
+      "reach": 27800,
+      "content": "Sunday inspiration",
+      "engagementRate": 10.1
+    },
+    {
+      "id": "b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e",
+      "date": "2024-01-13",
+      "platform": "twitter",
+      "likes": 3123,
+      "comments": 178,
+      "shares": 534,
+      "reach": 28900,
+      "content": "Sunday thoughts thread",
+      "engagementRate": 9.3
+    },
+    {
+      "id": "c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f",
+      "date": "2024-01-13",
+      "platform": "facebook",
+      "likes": 2678,
+      "comments": 223,
+      "shares": 189,
+      "reach": 22300,
+      "content": "Sunday family time post",
+      "engagementRate": 8.5
+    },
+    {
+      "id": "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a",
+      "date": "2024-01-12",
+      "platform": "instagram",
+      "likes": 3345,
+      "comments": 198,
+      "shares": 167,
+      "reach": 23400,
+      "content": "Saturday special offer",
+      "engagementRate": 9.2
+    },
+    {
+      "id": "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b",
+      "date": "2024-01-12",
+      "platform": "twitter",
+      "likes": 2987,
+      "comments": 145,
+      "shares": 423,
+      "reach": 25600,
+      "content": "Saturday insights",
+      "engagementRate": 8.6
+    },
+    {
+      "id": "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c",
+      "date": "2024-01-12",
+      "platform": "facebook",
+      "likes": 2456,
+      "comments": 178,
+      "shares": 145,
+      "reach": 19700,
+      "content": "Weekend plans discussion",
+      "engagementRate": 7.8
+    },
+    {
+      "id": "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d",
+      "date": "2024-01-11",
+      "platform": "instagram",
+      "likes": 3567,
+      "comments": 234,
+      "shares": 178,
+      "reach": 25300,
+      "content": "Friday feature showcase",
+      "engagementRate": 9.4
+    },
+    {
+      "id": "b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e",
+      "date": "2024-01-11",
+      "platform": "twitter",
+      "likes": 3234,
+      "comments": 189,
+      "shares": 567,
+      "reach": 29400,
+      "content": "Friday feels thread",
+      "engagementRate": 9.6
+    },
+    {
+      "id": "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f",
+      "date": "2024-01-11",
+      "platform": "facebook",
+      "likes": 2789,
+      "comments": 201,
+      "shares": 167,
+      "reach": 21800,
+      "content": "Friday fun activities",
+      "engagementRate": 8.3
+    },
+    {
+      "id": "d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a",
+      "date": "2024-01-10",
+      "platform": "instagram",
+      "likes": 3123,
+      "comments": 189,
+      "shares": 156,
+      "reach": 22100,
+      "content": "Thursday tips tutorial",
+      "engagementRate": 8.8
+    },
+    {
+      "id": "e7f8a9b0-c1d2-3e4f-5a6b-7c8d9e0f1a2b",
+      "date": "2024-01-10",
+      "platform": "twitter",
+      "likes": 2890,
+      "comments": 167,
+      "shares": 489,
+      "reach": 27300,
+      "content": "Throwback Thursday post",
+      "engagementRate": 8.9
+    },
+    {
+      "id": "f8a9b0c1-d2e3-4f5a-6b7c-8d9e0f1a2b3c",
+      "date": "2024-01-10",
+      "platform": "facebook",
+      "likes": 2567,
+      "comments": 178,
+      "shares": 134,
+      "reach": 19500,
+      "content": "Thursday thoughts",
+      "engagementRate": 7.7
+    },
+    {
+      "id": "a9b0c1d2-e3f4-5a6b-7c8d-9e0f1a2b3c4d",
+      "date": "2024-01-09",
+      "platform": "instagram",
+      "likes": 3345,
+      "comments": 212,
+      "shares": 167,
+      "reach": 23800,
+      "content": "Wednesday wellness tips",
+      "engagementRate": 9.1
+    },
+    {
+      "id": "b0c1d2e3-f4a5-6b7c-8d9e-0f1a2b3c4d5e",
+      "date": "2024-01-09",
+      "platform": "twitter",
+      "likes": 3012,
+      "comments": 178,
+      "shares": 512,
+      "reach": 28100,
+      "content": "Midweek motivation",
+      "engagementRate": 9.0
+    },
+    {
+      "id": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+      "date": "2024-01-09",
+      "platform": "facebook",
+      "likes": 2678,
+      "comments": 189,
+      "shares": 156,
+      "reach": 20900,
+      "content": "Wednesday wisdom",
+      "engagementRate": 8.1
+    },
+    {
+      "id": "d2e3f4a5-b6c7-8d9e-0f1a-2b3c4d5e6f7a",
+      "date": "2024-01-08",
+      "platform": "instagram",
+      "likes": 2987,
+      "comments": 167,
+      "shares": 145,
+      "reach": 20500,
+      "content": "Tuesday transformation",
+      "engagementRate": 8.4
+    },
+    {
+      "id": "e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b",
+      "date": "2024-01-08",
+      "platform": "twitter",
+      "likes": 2789,
+      "comments": 156,
+      "shares": 445,
+      "reach": 26200,
+      "content": "Tech Tuesday updates",
+      "engagementRate": 8.6
+    },
+    {
+      "id": "f4a5b6c7-d8e9-0f1a-2b3c-4d5e6f7a8b9c",
+      "date": "2024-01-08",
+      "platform": "facebook",
+      "likes": 2456,
+      "comments": 178,
+      "shares": 134,
+      "reach": 19300,
+      "content": "Tuesday tips",
+      "engagementRate": 7.6
+    },
+    {
+      "id": "a5b6c7d8-e9f0-1a2b-3c4d-5e6f7a8b9c0d",
+      "date": "2024-01-07",
+      "platform": "instagram",
+      "likes": 3234,
+      "comments": 201,
+      "shares": 167,
+      "reach": 22900,
+      "content": "Monday mindset",
+      "engagementRate": 8.9
+    },
+    {
+      "id": "b6c7d8e9-f0a1-2b3c-4d5e-6f7a8b9c0d1e",
+      "date": "2024-01-07",
+      "platform": "twitter",
+      "likes": 2945,
+      "comments": 178,
+      "shares": 489,
+      "reach": 27600,
+      "content": "Monday motivation boost",
+      "engagementRate": 8.8
+    },
+    {
+      "id": "c7d8e9f0-a1b2-3c4d-5e6f-7a8b9c0d1e2f",
+      "date": "2024-01-07",
+      "platform": "facebook",
+      "likes": 2567,
+      "comments": 189,
+      "shares": 145,
+      "reach": 20100,
+      "content": "Monday morning thoughts",
+      "engagementRate": 7.9
+    },
+    {
+      "id": "d8e9f0a1-b2c3-4d5e-6f7a-8b9c0d1e2f3a",
+      "date": "2024-01-06",
+      "platform": "instagram",
+      "likes": 3456,
+      "comments": 223,
+      "shares": 178,
+      "reach": 24600,
+      "content": "Sunday selfie challenge",
+      "engagementRate": 9.3
+    },
+    {
+      "id": "e9f0a1b2-c3d4-5e6f-7a8b-9c0d1e2f3a4b",
+      "date": "2024-01-06",
+      "platform": "twitter",
+      "likes": 3123,
+      "comments": 189,
+      "shares": 534,
+      "reach": 28700,
+      "content": "Sunday summary thread",
+      "engagementRate": 9.2
+    },
+    {
+      "id": "f0a1b2c3-d4e5-6f7a-8b9c-0d1e2f3a4b5c",
+      "date": "2024-01-06",
+      "platform": "facebook",
+      "likes": 2789,
+      "comments": 212,
+      "shares": 167,
+      "reach": 21900,
+      "content": "Sunday funday activities",
+      "engagementRate": 8.4
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "date": "2024-01-05",
+      "platform": "instagram",
+      "likes": 3678,
+      "comments": 245,
+      "shares": 189,
+      "reach": 26300,
+      "content": "Saturday spotlight",
+      "engagementRate": 9.7
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
+      "date": "2024-01-05",
+      "platform": "twitter",
+      "likes": 3345,
+      "comments": 201,
+      "shares": 567,
+      "reach": 29800,
+      "content": "Saturday social",
+      "engagementRate": 9.5
+    },
+    {
+      "id": "c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f",
+      "date": "2024-01-05",
+      "platform": "facebook",
+      "likes": 2890,
+      "comments": 223,
+      "shares": 178,
+      "reach": 22700,
+      "content": "Saturday special",
+      "engagementRate": 8.6
+    },
+    {
+      "id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a",
+      "date": "2024-01-04",
+      "platform": "instagram",
+      "likes": 3234,
+      "comments": 198,
+      "shares": 167,
+      "reach": 23500,
+      "content": "Friday feature",
+      "engagementRate": 8.9
+    },
+    {
+      "id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b",
+      "date": "2024-01-04",
+      "platform": "twitter",
+      "likes": 2987,
+      "comments": 178,
+      "shares": 489,
+      "reach": 27500,
+      "content": "Friday feelings",
+      "engagementRate": 8.8
+    },
+    {
+      "id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c",
+      "date": "2024-01-04",
+      "platform": "facebook",
+      "likes": 2678,
+      "comments": 201,
+      "shares": 156,
+      "reach": 21300,
+      "content": "Friday wrap up",
+      "engagementRate": 8.2
+    },
+    {
+      "id": "a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d",
+      "date": "2024-01-03",
+      "platform": "instagram",
+      "likes": 3123,
+      "comments": 189,
+      "shares": 156,
+      "reach": 22400,
+      "content": "Thursday throwback",
+      "engagementRate": 8.7
+    },
+    {
+      "id": "b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e",
+      "date": "2024-01-03",
+      "platform": "twitter",
+      "likes": 2856,
+      "comments": 167,
+      "shares": 456,
+      "reach": 26400,
+      "content": "Thursday trends",
+      "engagementRate": 8.5
+    },
+    {
+      "id": "c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f",
+      "date": "2024-01-03",
+      "platform": "facebook",
+      "likes": 2567,
+      "comments": 189,
+      "shares": 145,
+      "reach": 20200,
+      "content": "Thursday thoughts",
+      "engagementRate": 7.8
+    },
+    {
+      "id": "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a",
+      "date": "2024-01-02",
+      "platform": "instagram",
+      "likes": 3345,
+      "comments": 212,
+      "shares": 167,
+      "reach": 24100,
+      "content": "Wednesday workout",
+      "engagementRate": 9.0
+    },
+    {
+      "id": "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b",
+      "date": "2024-01-02",
+      "platform": "twitter",
+      "likes": 2945,
+      "comments": 178,
+      "shares": 501,
+      "reach": 27800,
+      "content": "Wednesday wisdom",
+      "engagementRate": 8.9
+    },
+    {
+      "id": "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c",
+      "date": "2024-01-02",
+      "platform": "facebook",
+      "likes": 2678,
+      "comments": 198,
+      "shares": 156,
+      "reach": 21100,
+      "content": "Wednesday wellness",
+      "engagementRate": 8.1
+    },
+    {
+      "id": "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d",
+      "date": "2024-01-01",
+      "platform": "instagram",
+      "likes": 4567,
+      "comments": 289,
+      "shares": 234,
+      "reach": 31200,
+      "content": "New Year celebration",
+      "engagementRate": 11.5
+    },
+    {
+      "id": "b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e",
+      "date": "2024-01-01",
+      "platform": "twitter",
+      "likes": 4123,
+      "comments": 267,
+      "shares": 789,
+      "reach": 35600,
+      "content": "Happy New Year 2024",
+      "engagementRate": 11.8
+    },
+    {
+      "id": "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f",
+      "date": "2024-01-01",
+      "platform": "facebook",
+      "likes": 3890,
+      "comments": 245,
+      "shares": 223,
+      "reach": 28900,
+      "content": "New Year greetings",
+      "engagementRate": 10.7
     }
   ],
   "followers": [
     {
-      "id": "1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+      "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "date": "2024-01-25",
+      "platform": "instagram",
+      "followers": 15789,
+      "newFollowers": 289,
+      "unfollows": 15,
+      "netGrowth": 274
+    },
+    {
+      "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+      "date": "2024-01-25",
+      "platform": "facebook",
+      "followers": 11234,
+      "newFollowers": 234,
+      "unfollows": 28,
+      "netGrowth": 206
+    },
+    {
+      "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+      "date": "2024-01-25",
+      "platform": "twitter",
+      "followers": 4567,
+      "newFollowers": 112,
+      "unfollows": 8,
+      "netGrowth": 104
+    },
+    {
+      "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+      "date": "2024-01-24",
+      "platform": "instagram",
+      "followers": 15515,
+      "newFollowers": 267,
+      "unfollows": 12,
+      "netGrowth": 255
+    },
+    {
+      "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+      "date": "2024-01-24",
+      "platform": "facebook",
+      "followers": 11028,
+      "newFollowers": 212,
+      "unfollows": 25,
+      "netGrowth": 187
+    },
+    {
+      "id": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+      "date": "2024-01-24",
+      "platform": "twitter",
+      "followers": 4463,
+      "newFollowers": 98,
+      "unfollows": 6,
+      "netGrowth": 92
+    },
+    {
+      "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+      "date": "2024-01-23",
+      "platform": "instagram",
+      "followers": 15260,
+      "newFollowers": 245,
+      "unfollows": 14,
+      "netGrowth": 231
+    },
+    {
+      "id": "8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+      "date": "2024-01-23",
+      "platform": "facebook",
+      "followers": 10841,
+      "newFollowers": 198,
+      "unfollows": 27,
+      "netGrowth": 171
+    },
+    {
+      "id": "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+      "date": "2024-01-23",
+      "platform": "twitter",
+      "followers": 4371,
+      "newFollowers": 89,
+      "unfollows": 7,
+      "netGrowth": 82
+    },
+    {
+      "id": "0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a",
+      "date": "2024-01-22",
+      "platform": "instagram",
+      "followers": 15029,
+      "newFollowers": 278,
+      "unfollows": 16,
+      "netGrowth": 262
+    },
+    {
+      "id": "1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+      "date": "2024-01-22",
+      "platform": "facebook",
+      "followers": 10670,
+      "newFollowers": 223,
+      "unfollows": 29,
+      "netGrowth": 194
+    },
+    {
+      "id": "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+      "date": "2024-01-22",
+      "platform": "twitter",
+      "followers": 4289,
+      "newFollowers": 105,
+      "unfollows": 9,
+      "netGrowth": 96
+    },
+    {
+      "id": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+      "date": "2024-01-21",
+      "platform": "instagram",
+      "followers": 14767,
+      "newFollowers": 256,
+      "unfollows": 13,
+      "netGrowth": 243
+    },
+    {
+      "id": "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+      "date": "2024-01-21",
+      "platform": "facebook",
+      "followers": 10476,
+      "newFollowers": 201,
+      "unfollows": 26,
+      "netGrowth": 175
+    },
+    {
+      "id": "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+      "date": "2024-01-21",
+      "platform": "twitter",
+      "followers": 4193,
+      "newFollowers": 92,
+      "unfollows": 5,
+      "netGrowth": 87
+    },
+    {
+      "id": "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+      "date": "2024-01-20",
+      "platform": "instagram",
+      "followers": 14524,
+      "newFollowers": 234,
+      "unfollows": 11,
+      "netGrowth": 223
+    },
+    {
+      "id": "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+      "date": "2024-01-20",
+      "platform": "facebook",
+      "followers": 10301,
+      "newFollowers": 189,
+      "unfollows": 24,
+      "netGrowth": 165
+    },
+    {
+      "id": "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+      "date": "2024-01-20",
+      "platform": "twitter",
+      "followers": 4106,
+      "newFollowers": 86,
+      "unfollows": 6,
+      "netGrowth": 80
+    },
+    {
+      "id": "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+      "date": "2024-01-19",
+      "platform": "instagram",
+      "followers": 14301,
+      "newFollowers": 267,
+      "unfollows": 15,
+      "netGrowth": 252
+    },
+    {
+      "id": "0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e",
+      "date": "2024-01-19",
+      "platform": "facebook",
+      "followers": 10136,
+      "newFollowers": 212,
+      "unfollows": 30,
+      "netGrowth": 182
+    },
+    {
+      "id": "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+      "date": "2024-01-19",
+      "platform": "twitter",
+      "followers": 4026,
+      "newFollowers": 101,
+      "unfollows": 10,
+      "netGrowth": 91
+    },
+    {
+      "id": "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+      "date": "2024-01-18",
+      "platform": "instagram",
+      "followers": 14049,
+      "newFollowers": 289,
+      "unfollows": 17,
+      "netGrowth": 272
+    },
+    {
+      "id": "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+      "date": "2024-01-18",
+      "platform": "facebook",
+      "followers": 9954,
+      "newFollowers": 234,
+      "unfollows": 32,
+      "netGrowth": 202
+    },
+    {
+      "id": "4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c",
+      "date": "2024-01-18",
+      "platform": "twitter",
+      "followers": 3935,
+      "newFollowers": 107,
+      "unfollows": 8,
+      "netGrowth": 99
+    },
+    {
+      "id": "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+      "date": "2024-01-17",
+      "platform": "instagram",
+      "followers": 13777,
+      "newFollowers": 256,
+      "unfollows": 14,
+      "netGrowth": 242
+    },
+    {
+      "id": "6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e",
+      "date": "2024-01-17",
+      "platform": "facebook",
+      "followers": 9752,
+      "newFollowers": 198,
+      "unfollows": 28,
+      "netGrowth": 170
+    },
+    {
+      "id": "7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
+      "date": "2024-01-17",
+      "platform": "twitter",
+      "followers": 3836,
+      "newFollowers": 94,
+      "unfollows": 7,
+      "netGrowth": 87
+    },
+    {
+      "id": "8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a",
+      "date": "2024-01-16",
+      "platform": "instagram",
+      "followers": 13535,
+      "newFollowers": 245,
+      "unfollows": 12,
+      "netGrowth": 233
+    },
+    {
+      "id": "9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b",
+      "date": "2024-01-16",
+      "platform": "facebook",
+      "followers": 9582,
+      "newFollowers": 223,
+      "unfollows": 31,
+      "netGrowth": 192
+    },
+    {
+      "id": "0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+      "date": "2024-01-16",
+      "platform": "twitter",
+      "followers": 3749,
+      "newFollowers": 98,
+      "unfollows": 6,
+      "netGrowth": 92
+    },
+    {
+      "id": "1a2b3c4d-5e6f-7a8b-9c0d-0e1f2a3b4c5d",
       "date": "2024-01-15",
       "platform": "instagram",
-      "followers": 12345,
+      "followers": 13302,
+      "newFollowers": 234,
+      "unfollows": 11,
+      "netGrowth": 223
+    },
+    {
+      "id": "2b3c4d5e-6f7a-8b9c-0d1e-1f2a3b4c5d6e",
+      "date": "2024-01-15",
+      "platform": "facebook",
+      "followers": 9390,
+      "newFollowers": 201,
+      "unfollows": 27,
+      "netGrowth": 174
+    },
+    {
+      "id": "3c4d5e6f-7a8b-9c0d-1e2f-2a3b4c5d6e7f",
+      "date": "2024-01-15",
+      "platform": "twitter",
+      "followers": 3657,
+      "newFollowers": 89,
+      "unfollows": 5,
+      "netGrowth": 84
+    },
+    {
+      "id": "4d5e6f7a-8b9c-0d1e-2f3a-3b4c5d6e7f8a",
+      "date": "2024-01-14",
+      "platform": "instagram",
+      "followers": 13079,
+      "newFollowers": 267,
+      "unfollows": 15,
+      "netGrowth": 252
+    },
+    {
+      "id": "5e6f7a8b-9c0d-1e2f-3a4b-4c5d6e7f8a9b",
+      "date": "2024-01-14",
+      "platform": "facebook",
+      "followers": 9216,
+      "newFollowers": 212,
+      "unfollows": 29,
+      "netGrowth": 183
+    },
+    {
+      "id": "6f7a8b9c-0d1e-2f3a-4b5c-5d6e7f8a9b0c",
+      "date": "2024-01-14",
+      "platform": "twitter",
+      "followers": 3573,
+      "newFollowers": 95,
+      "unfollows": 8,
+      "netGrowth": 87
+    },
+    {
+      "id": "7a8b9c0d-1e2f-3a4b-5c6d-6e7f8a9b0c1d",
+      "date": "2024-01-13",
+      "platform": "instagram",
+      "followers": 12827,
+      "newFollowers": 278,
+      "unfollows": 16,
+      "netGrowth": 262
+    },
+    {
+      "id": "8b9c0d1e-2f3a-4b5c-6d7e-7f8a9b0c1d2e",
+      "date": "2024-01-13",
+      "platform": "facebook",
+      "followers": 9033,
+      "newFollowers": 234,
+      "unfollows": 33,
+      "netGrowth": 201
+    },
+    {
+      "id": "9c0d1e2f-3a4b-5c6d-7e8f-8a9b0c1d2e3f",
+      "date": "2024-01-13",
+      "platform": "twitter",
+      "followers": 3486,
+      "newFollowers": 103,
+      "unfollows": 9,
+      "netGrowth": 94
+    },
+    {
+      "id": "0d1e2f3a-4b5c-6d7e-8f9a-9b0c1d2e3f4a",
+      "date": "2024-01-12",
+      "platform": "instagram",
+      "followers": 12565,
+      "newFollowers": 245,
+      "unfollows": 13,
+      "netGrowth": 232
+    },
+    {
+      "id": "1e2f3a4b-5c6d-7e8f-9a0b-0c1d2e3f4a5b",
+      "date": "2024-01-12",
+      "platform": "facebook",
+      "followers": 8832,
+      "newFollowers": 198,
+      "unfollows": 26,
+      "netGrowth": 172
+    },
+    {
+      "id": "2f3a4b5c-6d7e-8f9a-0b1c-1d2e3f4a5b6c",
+      "date": "2024-01-12",
+      "platform": "twitter",
+      "followers": 3392,
+      "newFollowers": 92,
+      "unfollows": 7,
+      "netGrowth": 85
+    },
+    {
+      "id": "3a4b5c6d-7e8f-9a0b-1c2d-2e3f4a5b6c7d",
+      "date": "2024-01-11",
+      "platform": "instagram",
+      "followers": 12333,
+      "newFollowers": 256,
+      "unfollows": 14,
+      "netGrowth": 242
+    },
+    {
+      "id": "4b5c6d7e-8f9a-0b1c-2d3e-3f4a5b6c7d8e",
+      "date": "2024-01-11",
+      "platform": "facebook",
+      "followers": 8660,
+      "newFollowers": 223,
+      "unfollows": 30,
+      "netGrowth": 193
+    },
+    {
+      "id": "5c6d7e8f-9a0b-1c2d-3e4f-4a5b6c7d8e9f",
+      "date": "2024-01-11",
+      "platform": "twitter",
+      "followers": 3307,
+      "newFollowers": 98,
+      "unfollows": 6,
+      "netGrowth": 92
+    },
+    {
+      "id": "6d7e8f9a-0b1c-2d3e-4f5a-5b6c7d8e9f0a",
+      "date": "2024-01-10",
+      "platform": "instagram",
+      "followers": 12091,
+      "newFollowers": 289,
+      "unfollows": 17,
+      "netGrowth": 272
+    },
+    {
+      "id": "7e8f9a0b-1c2d-3e4f-5a6b-6c7d8e9f0a1b",
+      "date": "2024-01-10",
+      "platform": "facebook",
+      "followers": 8467,
+      "newFollowers": 245,
+      "unfollows": 34,
+      "netGrowth": 211
+    },
+    {
+      "id": "8f9a0b1c-2d3e-4f5a-6b7c-7d8e9f0a1b2c",
+      "date": "2024-01-10",
+      "platform": "twitter",
+      "followers": 3215,
+      "newFollowers": 105,
+      "unfollows": 10,
+      "netGrowth": 95
+    },
+    {
+      "id": "9a0b1c2d-3e4f-5a6b-7c8d-8e9f0a1b2c3d",
+      "date": "2024-01-09",
+      "platform": "instagram",
+      "followers": 11819,
+      "newFollowers": 267,
+      "unfollows": 15,
+      "netGrowth": 252
+    },
+    {
+      "id": "0b1c2d3e-4f5a-6b7c-8d9e-9f0a1b2c3d4e",
+      "date": "2024-01-09",
+      "platform": "facebook",
+      "followers": 8256,
+      "newFollowers": 212,
+      "unfollows": 28,
+      "netGrowth": 184
+    },
+    {
+      "id": "1c2d3e4f-5a6b-7c8d-9e0f-0a1b2c3d4e5f",
+      "date": "2024-01-09",
+      "platform": "twitter",
+      "followers": 3120,
+      "newFollowers": 89,
+      "unfollows": 8,
+      "netGrowth": 81
+    },
+    {
+      "id": "2d3e4f5a-6b7c-8d9e-0f1a-1b2c3d4e5f6a",
+      "date": "2024-01-08",
+      "platform": "instagram",
+      "followers": 11567,
       "newFollowers": 234,
       "unfollows": 12,
       "netGrowth": 222
     },
     {
-      "id": "2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
-      "date": "2024-01-12",
-      "platform": "instagram",
-      "followers": 12111,
+      "id": "3e4f5a6b-7c8d-9e0f-1a2b-2c3d4e5f6a7b",
+      "date": "2024-01-08",
+      "platform": "facebook",
+      "followers": 8072,
       "newFollowers": 198,
-      "unfollows": 15,
+      "unfollows": 25,
+      "netGrowth": 173
+    },
+    {
+      "id": "4f5a6b7c-8d9e-0f1a-2b3c-3d4e5f6a7b8c",
+      "date": "2024-01-08",
+      "platform": "twitter",
+      "followers": 3039,
+      "newFollowers": 92,
+      "unfollows": 7,
+      "netGrowth": 85
+    },
+    {
+      "id": "5a6b7c8d-9e0f-1a2b-3c4d-4e5f6a7b8c9d",
+      "date": "2024-01-07",
+      "platform": "instagram",
+      "followers": 11345,
+      "newFollowers": 278,
+      "unfollows": 16,
+      "netGrowth": 262
+    },
+    {
+      "id": "6b7c8d9e-0f1a-2b3c-4d5e-5f6a7b8c9d0e",
+      "date": "2024-01-07",
+      "platform": "facebook",
+      "followers": 7899,
+      "newFollowers": 223,
+      "unfollows": 31,
+      "netGrowth": 192
+    },
+    {
+      "id": "7c8d9e0f-1a2b-3c4d-5e6f-6a7b8c9d0e1f",
+      "date": "2024-01-07",
+      "platform": "twitter",
+      "followers": 2954,
+      "newFollowers": 98,
+      "unfollows": 9,
+      "netGrowth": 89
+    },
+    {
+      "id": "8d9e0f1a-2b3c-4d5e-6f7a-7b8c9d0e1f2a",
+      "date": "2024-01-06",
+      "platform": "instagram",
+      "followers": 11083,
+      "newFollowers": 256,
+      "unfollows": 14,
+      "netGrowth": 242
+    },
+    {
+      "id": "9e0f1a2b-3c4d-5e6f-7a8b-8c9d0e1f2a3b",
+      "date": "2024-01-06",
+      "platform": "facebook",
+      "followers": 7707,
+      "newFollowers": 201,
+      "unfollows": 27,
+      "netGrowth": 174
+    },
+    {
+      "id": "0f1a2b3c-4d5e-6f7a-8b9c-9d0e1f2a3b4c",
+      "date": "2024-01-06",
+      "platform": "twitter",
+      "followers": 2865,
+      "newFollowers": 89,
+      "unfollows": 6,
+      "netGrowth": 83
+    },
+    {
+      "id": "1a2b3c4d-5e6f-7a8b-9c0d-0e1f2a3b4c5d",
+      "date": "2024-01-05",
+      "platform": "instagram",
+      "followers": 10841,
+      "newFollowers": 289,
+      "unfollows": 18,
+      "netGrowth": 271
+    },
+    {
+      "id": "2b3c4d5e-6f7a-8b9c-0d1e-1f2a3b4c5d6e",
+      "date": "2024-01-05",
+      "platform": "facebook",
+      "followers": 7533,
+      "newFollowers": 234,
+      "unfollows": 32,
+      "netGrowth": 202
+    },
+    {
+      "id": "3c4d5e6f-7a8b-9c0d-1e2f-2a3b4c5d6e7f",
+      "date": "2024-01-05",
+      "platform": "twitter",
+      "followers": 2782,
+      "newFollowers": 103,
+      "unfollows": 8,
+      "netGrowth": 95
+    },
+    {
+      "id": "4d5e6f7a-8b9c-0d1e-2f3a-3b4c5d6e7f8a",
+      "date": "2024-01-04",
+      "platform": "instagram",
+      "followers": 10570,
+      "newFollowers": 245,
+      "unfollows": 13,
+      "netGrowth": 232
+    },
+    {
+      "id": "5e6f7a8b-9c0d-1e2f-3a4b-4c5d6e7f8a9b",
+      "date": "2024-01-04",
+      "platform": "facebook",
+      "followers": 7331,
+      "newFollowers": 212,
+      "unfollows": 29,
       "netGrowth": 183
     },
     {
-      "id": "3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
-      "date": "2024-01-09",
-      "platform": "instagram",
-      "followers": 11913,
-      "newFollowers": 267,
-      "unfollows": 18,
-      "netGrowth": 249
-    },
-    {
-      "id": "4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8a",
-      "date": "2024-01-06",
-      "platform": "instagram",
-      "followers": 11646,
-      "newFollowers": 289,
-      "unfollows": 22,
-      "netGrowth": 267
-    },
-    {
-      "id": "5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9b",
-      "date": "2024-01-03",
-      "platform": "instagram",
-      "followers": 11357,
-      "newFollowers": 223,
-      "unfollows": 19,
-      "netGrowth": 204
-    },
-    {
-      "id": "6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c",
-      "date": "2024-01-15",
-      "platform": "facebook",
-      "followers": 8976,
-      "newFollowers": 189,
-      "unfollows": 23,
-      "netGrowth": 166
-    },
-    {
-      "id": "7a8b9c0d-1e2f-4a3b-4c5d-6e7f8a9b0c1d",
-      "date": "2024-01-12",
-      "platform": "facebook",
-      "followers": 8787,
-      "newFollowers": 156,
-      "unfollows": 28,
-      "netGrowth": 128
-    },
-    {
-      "id": "8b9c0d1e-2f3a-4b4c-5d6e-7f8a9b0c1d2e",
-      "date": "2024-01-09",
-      "platform": "facebook",
-      "followers": 8631,
-      "newFollowers": 201,
-      "unfollows": 31,
-      "netGrowth": 170
-    },
-    {
-      "id": "9c0d1e2f-3a4b-4c5d-6e7f-8a9b0c1d2e3f",
-      "date": "2024-01-06",
-      "platform": "facebook",
-      "followers": 8430,
-      "newFollowers": 178,
-      "unfollows": 27,
-      "netGrowth": 151
-    },
-    {
-      "id": "0d1e2f3a-4b5c-4d6e-7f8a-9b0c1d2e3f4a",
-      "date": "2024-01-03",
-      "platform": "facebook",
-      "followers": 8252,
-      "newFollowers": 167,
-      "unfollows": 25,
-      "netGrowth": 142
-    },
-    {
-      "id": "1e2f3a4b-5c6d-4e7f-8a9b-0c1d2e3f4a5b",
-      "date": "2024-01-15",
+      "id": "6f7a8b9c-0d1e-2f3a-4b5c-5d6e7f8a9b0c",
+      "date": "2024-01-04",
       "platform": "twitter",
-      "followers": 3242,
-      "newFollowers": 78,
-      "unfollows": 5,
-      "netGrowth": 73
-    },
-    {
-      "id": "2f3a4b5c-6d7e-4f8a-9b0c-1d2e3f4a5b6c",
-      "date": "2024-01-12",
-      "platform": "twitter",
-      "followers": 3169,
-      "newFollowers": 92,
-      "unfollows": 8,
-      "netGrowth": 84
-    },
-    {
-      "id": "3a4b5c6d-7e8f-4a9b-0c1d-2e3f4a5b6c7d",
-      "date": "2024-01-09",
-      "platform": "twitter",
-      "followers": 3077,
-      "newFollowers": 103,
-      "unfollows": 11,
-      "netGrowth": 92
-    },
-    {
-      "id": "4b5c6d7e-8f9a-4b0c-1d2e-3f4a5b6c7d8e",
-      "date": "2024-01-06",
-      "platform": "twitter",
-      "followers": 2974,
-      "newFollowers": 87,
-      "unfollows": 6,
-      "netGrowth": 81
-    },
-    {
-      "id": "5c6d7e8f-9a0b-4c1d-2e3f-4a5b6c7d8e9f",
-      "date": "2024-01-03",
-      "platform": "twitter",
-      "followers": 2887,
+      "followers": 2687,
       "newFollowers": 95,
-      "unfollows": 9,
-      "netGrowth": 86
+      "unfollows": 7,
+      "netGrowth": 88
     },
     {
-      "id": "6d7e8f9a-0b1c-4d2e-3f4a-5b6c7d8e9f0a",
-      "date": "2024-01-14",
+      "id": "7a8b9c0d-1e2f-3a4b-5c6d-6e7f8a9b0c1d",
+      "date": "2024-01-03",
       "platform": "instagram",
-      "followers": 12234,
-      "newFollowers": 187,
-      "unfollows": 11,
-      "netGrowth": 176
+      "followers": 10338,
+      "newFollowers": 267,
+      "unfollows": 15,
+      "netGrowth": 252
     },
     {
-      "id": "7e8f9a0b-1c2d-4e3f-4a5b-6c7d8e9f0a1b",
-      "date": "2024-01-11",
+      "id": "8b9c0d1e-2f3a-4b5c-6d7e-7f8a9b0c1d2e",
+      "date": "2024-01-03",
       "platform": "facebook",
-      "followers": 8710,
-      "newFollowers": 143,
-      "unfollows": 20,
-      "netGrowth": 123
+      "followers": 7148,
+      "newFollowers": 223,
+      "unfollows": 30,
+      "netGrowth": 193
     },
     {
-      "id": "8f9a0b1c-2d3e-4f4a-5b6c-7d8e9f0a1b2c",
-      "date": "2024-01-13",
+      "id": "9c0d1e2f-3a4b-5c6d-7e8f-8a9b0c1d2e3f",
+      "date": "2024-01-03",
       "platform": "twitter",
-      "followers": 3208,
-      "newFollowers": 68,
-      "unfollows": 4,
-      "netGrowth": 64
+      "followers": 2599,
+      "newFollowers": 98,
+      "unfollows": 9,
+      "netGrowth": 89
     },
     {
-      "id": "9a0b1c2d-3e4f-4a5b-6c7d-8e9f0a1b2c3d",
-      "date": "2024-01-10",
+      "id": "0d1e2f3a-4b5c-6d7e-8f9a-9b0c1d2e3f4a",
+      "date": "2024-01-02",
       "platform": "instagram",
-      "followers": 12058,
-      "newFollowers": 211,
-      "unfollows": 14,
-      "netGrowth": 197
+      "followers": 10086,
+      "newFollowers": 278,
+      "unfollows": 16,
+      "netGrowth": 262
     },
     {
-      "id": "0b1c2d3e-4f5a-4b6c-7d8e-9f0a1b2c3d4e",
-      "date": "2024-01-08",
+      "id": "1e2f3a4b-5c6d-7e8f-9a0b-0c1d2e3f4a5b",
+      "date": "2024-01-02",
       "platform": "facebook",
-      "followers": 8556,
-      "newFollowers": 189,
-      "unfollows": 26,
-      "netGrowth": 163
+      "followers": 6955,
+      "newFollowers": 234,
+      "unfollows": 33,
+      "netGrowth": 201
+    },
+    {
+      "id": "2f3a4b5c-6d7e-8f9a-0b1c-1d2e3f4a5b6c",
+      "date": "2024-01-02",
+      "platform": "twitter",
+      "followers": 2510,
+      "newFollowers": 105,
+      "unfollows": 10,
+      "netGrowth": 95
+    },
+    {
+      "id": "3a4b5c6d-7e8f-9a0b-1c2d-2e3f4a5b6c7d",
+      "date": "2024-01-01",
+      "platform": "instagram",
+      "followers": 9824,
+      "newFollowers": 312,
+      "unfollows": 19,
+      "netGrowth": 293
+    },
+    {
+      "id": "4b5c6d7e-8f9a-0b1c-2d3e-3f4a5b6c7d8e",
+      "date": "2024-01-01",
+      "platform": "facebook",
+      "followers": 6754,
+      "newFollowers": 289,
+      "unfollows": 35,
+      "netGrowth": 254
+    },
+    {
+      "id": "5c6d7e8f-9a0b-1c2d-3e4f-4a5b6c7d8e9f",
+      "date": "2024-01-01",
+      "platform": "twitter",
+      "followers": 2415,
+      "newFollowers": 134,
+      "unfollows": 11,
+      "netGrowth": 123
     }
   ]
 }

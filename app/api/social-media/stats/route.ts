@@ -154,14 +154,16 @@ export async function GET() {
             }))
             .sort((a, b) => a.date.localeCompare(b.date));
 
-        return NextResponse.json({
-            success: true,
-            data: {
-                dashboard: dashboardStats,
-                platforms: platformStats,
-                engagement: engagementData,
-            },
-        });
+        return NextResponse.json(
+            {
+                success: true,
+                data: {
+                    dashboard: dashboardStats,
+                    platforms: platformStats,
+                    engagement: engagementData,
+                },
+            }
+        );
     } catch (error) {
         console.error("Error fetching stats:", error);
         return NextResponse.json(

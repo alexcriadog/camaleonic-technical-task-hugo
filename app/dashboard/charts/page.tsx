@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
+import { format } from "date-fns";
 import { useSocialMediaData } from "@/lib/hooks/use-social-media-data";
 import { DashboardSkeleton } from "@/components/dashboard/dashboard-skeleton";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Calendar, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import {
   ChartContainer,
   ChartTooltip,
@@ -18,6 +19,8 @@ import {
   AreaChart,
   CartesianGrid,
   Cell,
+  Line,
+  LineChart,
   Pie,
   PieChart,
   Scatter,
@@ -138,10 +141,6 @@ export default function ChartsPage() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline" className="gap-2">
-              <Calendar className="size-4" />
-              Last 30 Days
-            </Button>
             <Button
               variant="outline"
               size="sm"
@@ -230,17 +229,17 @@ export default function ChartsPage() {
                 axisLine={false}
                 tickMargin={8}
                 minTickGap={32}
-                tickFormatter={(value) =>
-                  new Date(value).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                  })
-                }
+                tickFormatter={(value) => format(new Date(value), "MMM d")}
               />
               <YAxis tickLine={false} axisLine={false} tickMargin={8} />
               <ChartTooltip
                 cursor={false}
-                content={<ChartTooltipContent indicator="dot" />}
+                content={
+                  <ChartTooltipContent
+                    indicator="dot"
+                    labelFormatter={(value) => format(new Date(value), "PPP")}
+                  />
+                }
               />
               <ChartLegend content={<ChartLegendContent />} />
               <Area
@@ -295,63 +294,14 @@ export default function ChartsPage() {
               }}
               className="h-64"
             >
-              <AreaChart data={aggregatedFollowerGrowth}>
-                <defs>
-                  <linearGradient
-                    id="fillInstagramGrowth"
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1"
-                  >
-                    <stop
-                      offset="5%"
-                      stopColor="var(--color-instagram)"
-                      stopOpacity={0.8}
-                    />
-                    <stop
-                      offset="95%"
-                      stopColor="var(--color-instagram)"
-                      stopOpacity={0.1}
-                    />
-                  </linearGradient>
-                  <linearGradient
-                    id="fillFacebookGrowth"
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1"
-                  >
-                    <stop
-                      offset="5%"
-                      stopColor="var(--color-facebook)"
-                      stopOpacity={0.8}
-                    />
-                    <stop
-                      offset="95%"
-                      stopColor="var(--color-facebook)"
-                      stopOpacity={0.1}
-                    />
-                  </linearGradient>
-                  <linearGradient
-                    id="fillTwitterGrowth"
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1"
-                  >
-                    <stop
-                      offset="5%"
-                      stopColor="var(--color-twitter)"
-                      stopOpacity={0.8}
-                    />
-                    <stop
-                      offset="95%"
-                      stopColor="var(--color-twitter)"
-                      stopOpacity={0.1}
-                    />
-                  </linearGradient>
-                </defs>
+              <LineChart
+                accessibilityLayer
+                data={aggregatedFollowerGrowth}
+                margin={{
+                  left: 12,
+                  right: 12,
+                }}
+              >
                 <CartesianGrid vertical={false} />
                 <XAxis
                   dataKey="date"
@@ -359,41 +309,40 @@ export default function ChartsPage() {
                   axisLine={false}
                   tickMargin={8}
                   minTickGap={32}
-                  tickFormatter={(value) =>
-                    new Date(value).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                    })
-                  }
+                  tickFormatter={(value) => format(new Date(value), "MMM d")}
                 />
                 <YAxis tickLine={false} axisLine={false} tickMargin={8} />
                 <ChartTooltip
                   cursor={false}
-                  content={<ChartTooltipContent indicator="dot" />}
+                  content={
+                    <ChartTooltipContent
+                      labelFormatter={(value) => format(new Date(value), "PPP")}
+                    />
+                  }
                 />
                 <ChartLegend content={<ChartLegendContent />} />
-                <Area
+                <Line
                   dataKey="instagram"
-                  type="natural"
-                  fill="url(#fillInstagramGrowth)"
+                  type="monotone"
                   stroke="var(--color-instagram)"
-                  stackId="a"
+                  strokeWidth={2}
+                  dot={false}
                 />
-                <Area
+                <Line
                   dataKey="facebook"
-                  type="natural"
-                  fill="url(#fillFacebookGrowth)"
+                  type="monotone"
                   stroke="var(--color-facebook)"
-                  stackId="a"
+                  strokeWidth={2}
+                  dot={false}
                 />
-                <Area
+                <Line
                   dataKey="twitter"
-                  type="natural"
-                  fill="url(#fillTwitterGrowth)"
+                  type="monotone"
                   stroke="var(--color-twitter)"
-                  stackId="a"
+                  strokeWidth={2}
+                  dot={false}
                 />
-              </AreaChart>
+              </LineChart>
             </ChartContainer>
           </Card>
 

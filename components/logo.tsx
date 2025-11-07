@@ -11,7 +11,7 @@ interface LogoProps {
 export function Logo({
   href = "/",
   className = "",
-  imageClassName = "h-20 w-auto md:h-28",
+  imageClassName = "h-14 w-auto md:h-18",
   priority = false,
 }: LogoProps) {
   const logoImage = (
