@@ -9,6 +9,7 @@ import { createPostsColumns } from "@/components/dashboard/posts-columns";
 import { createFollowersColumns } from "@/components/dashboard/followers-columns";
 import { PlatformFilter } from "@/components/dashboard/platform-filter";
 import { AddRecordDialog } from "@/components/dashboard/add-record-dialog";
+import { ExportDialog } from "@/components/dashboard/export-dialog";
 import { Plus, Download, RefreshCw } from "lucide-react";
 
 export default function TablesPage() {
@@ -16,6 +17,7 @@ export default function TablesPage() {
   const [postsFilter, setPostsFilter] = useState("");
   const [followersFilter, setFollowersFilter] = useState("");
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
 
   // Create columns with delete callback
   const postsColumns = useMemo(() => createPostsColumns(refetch), [refetch]);
@@ -73,7 +75,12 @@ export default function TablesPage() {
             <RefreshCw className="size-4" />
             Refresh
           </Button>
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2"
+            onClick={() => setIsExportDialogOpen(true)}
+          >
             <Download className="size-4" />
             Export
           </Button>
@@ -134,6 +141,14 @@ export default function TablesPage() {
         open={isAddDialogOpen}
         onOpenChange={setIsAddDialogOpen}
         onSuccess={refetch}
+      />
+
+      {/* Export Dialog */}
+      <ExportDialog
+        open={isExportDialogOpen}
+        onOpenChange={setIsExportDialogOpen}
+        posts={filteredPosts}
+        followers={filteredFollowers}
       />
     </div>
   );

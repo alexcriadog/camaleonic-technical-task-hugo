@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 export function LoginForm({
   className,
@@ -20,24 +21,106 @@ export function LoginForm({
 }: React.ComponentProps<"form">) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const validateEmail = (email: string) => {
+    if (!email) {
+      return "Email is required";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  };
+
+  const validatePassword = (password: string) => {
+    if (!password) {
+      return "Password is required";
+    }
+    return "";
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (emailError && value) {
+      setEmailError(validateEmail(value));
+    }
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPassword(value);
+    if (passwordError && value) {
+      setPasswordError(validatePassword(value));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+
+    // Validate all fields
+    const emailErr = validateEmail(email);
+    const passwordErr = validatePassword(password);
+
+    setEmailError(emailErr);
+    setPasswordError(passwordErr);
+
+    if (emailErr || passwordErr) {
+      toast.error("Validation Error", {
+        description: "Please fix the errors in the form",
+      });
+      return;
+    }
+
     setLoading(true);
 
     try {
-      await authClient.signIn.email({
+      const response = await authClient.signIn.email({
         email,
         password,
       });
+
+      if (response.error) {
+        toast.error("Login Failed", {
+          description:
+            response.error.message ||
+            "Invalid email or password. Please try again.",
+        });
+        setLoading(false);
+        return;
+      }
+
+      toast.success("Login Successful!", {
+        description: "Welcome back! Redirecting to dashboard...",
+      });
       router.push("/dashboard");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to login");
-    } finally {
+    } catch (err: unknown) {
+      // Handle different error formats
+      let errorMessage = "Failed to login. Please check your credentials.";
+
+      if (
+        err &&
+        typeof err === "object" &&
+        "error" in err &&
+        err.error &&
+        typeof err.error === "object" &&
+        "message" in err.error
+      ) {
+        errorMessage = String(err.error.message);
+      } else if (err && typeof err === "object" && "message" in err) {
+        errorMessage = String(err.message);
+      } else if (typeof err === "string") {
+        errorMessage = err;
+      }
+
+      toast.error("Login Failed", {
+        description: errorMessage,
+      });
       setLoading(false);
     }
   };
@@ -45,14 +128,39 @@ export function LoginForm({
   const handleGitHubLogin = async () => {
     setLoading(true);
     try {
-      await authClient.signIn.social({
+      const response = await authClient.signIn.social({
         provider: "github",
         callbackURL: "/dashboard",
       });
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to login with GitHub"
-      );
+
+      if (response?.error) {
+        toast.error("GitHub Login Failed", {
+          description:
+            response.error.message || "Failed to continue with GitHub",
+        });
+        setLoading(false);
+      }
+    } catch (err: unknown) {
+      let errorMessage = "Failed to continue with GitHub";
+
+      if (
+        err &&
+        typeof err === "object" &&
+        "error" in err &&
+        err.error &&
+        typeof err.error === "object" &&
+        "message" in err.error
+      ) {
+        errorMessage = String(err.error.message);
+      } else if (err && typeof err === "object" && "message" in err) {
+        errorMessage = String(err.message);
+      } else if (typeof err === "string") {
+        errorMessage = err;
+      }
+
+      toast.error("GitHub Login Failed", {
+        description: errorMessage,
+      });
       setLoading(false);
     }
   };
@@ -70,11 +178,6 @@ export function LoginForm({
             Enter your email below to login to your account
           </p>
         </div>
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded text-sm">
-            {error}
-          </div>
-        )}
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
           <Input
@@ -83,9 +186,16 @@ export function LoginForm({
             placeholder="m@example.com"
             required
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
+            onBlur={() => setEmailError(validateEmail(email))}
             disabled={loading}
+            className={
+              emailError ? "border-red-500 focus-visible:ring-red-500" : ""
+            }
           />
+          {emailError && (
+            <p className="text-red-500 text-sm mt-1">{emailError}</p>
+          )}
         </Field>
         <Field>
           <div className="flex items-center">
@@ -96,9 +206,16 @@ export function LoginForm({
             type="password"
             required
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
+            onBlur={() => setPasswordError(validatePassword(password))}
             disabled={loading}
+            className={
+              passwordError ? "border-red-500 focus-visible:ring-red-500" : ""
+            }
           />
+          {passwordError && (
+            <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+          )}
         </Field>
         <Field>
           <Button type="submit" disabled={loading}>
@@ -119,7 +236,7 @@ export function LoginForm({
                 fill="currentColor"
               />
             </svg>
-            Login with GitHub
+            Continue with GitHub
           </Button>
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
