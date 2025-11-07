@@ -1,20 +1,16 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
+import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { SocialMediaPost } from "@/lib/types/social-media";
-import { getPlatformColor, formatNumber, formatDate } from "@/lib/utils";
+import { getPlatformColor, formatNumber } from "@/lib/utils";
+import { PostActionsCell } from "./post-actions-cell";
 
-export const postsColumns: ColumnDef<SocialMediaPost>[] = [
+export const createPostsColumns = (
+  onDelete: () => void
+): ColumnDef<SocialMediaPost>[] => [
   {
     accessorKey: "date",
     header: ({ column }) => {
@@ -29,7 +25,9 @@ export const postsColumns: ColumnDef<SocialMediaPost>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="font-medium">{formatDate(row.getValue("date"))}</div>
+      <div className="font-medium">
+        {format(new Date(row.getValue("date")), "PPP")}
+      </div>
     ),
   },
   {
@@ -150,31 +148,7 @@ export const postsColumns: ColumnDef<SocialMediaPost>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const post = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="size-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="size-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(post.id)}
-            >
-              Copy post ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View details</DropdownMenuItem>
-            <DropdownMenuItem>Edit post</DropdownMenuItem>
-            <DropdownMenuItem className="text-red-600">
-              Delete post
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
+      return <PostActionsCell post={post} onDelete={onDelete} />;
     },
   },
 ];

@@ -35,6 +35,26 @@ export const getPlatformButtonColor = (platform: string, isActive: boolean): str
   return inactiveColors[platform as keyof typeof inactiveColors] || "";
 };
 
+// Helper function to get platform badge colors (for dashboard cards)
+export const getPlatformBadgeColor = (platform: string): string => {
+  const colors = {
+    instagram: "bg-chart-1/10 text-chart-1",
+    facebook: "bg-chart-2/10 text-chart-2",
+    twitter: "bg-chart-3/10 text-chart-3",
+  };
+  return colors[platform as keyof typeof colors] || "bg-gray-100 text-gray-700";
+};
+
+// Helper function to get platform text color
+export const getPlatformTextColor = (platform: string): string => {
+  const colors = {
+    instagram: "text-chart-1",
+    facebook: "text-chart-2",
+    twitter: "text-chart-3",
+  };
+  return colors[platform as keyof typeof colors] || "text-gray-700";
+};
+
 // Helper function to format numbers with K/M suffixes
 export const formatNumber = (num: number): string => {
   if (num >= 1000000) {
@@ -44,14 +64,4 @@ export const formatNumber = (num: number): string => {
     return `${(num / 1000).toFixed(1)}K`;
   }
   return num.toString();
-};
-
-// Helper function to format dates
-export const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
 };

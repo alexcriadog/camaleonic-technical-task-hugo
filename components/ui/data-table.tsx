@@ -41,6 +41,7 @@ interface DataTableProps<TData, TValue> {
   filterKey?: string;
   filterOptions?: { label: string; value: string }[];
   customFilter?: React.ReactNode;
+  initialSorting?: SortingState;
 }
 
 export function DataTable<TData, TValue>({
@@ -51,8 +52,9 @@ export function DataTable<TData, TValue>({
   filterKey,
   filterOptions,
   customFilter,
+  initialSorting = [],
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [sorting, setSorting] = React.useState<SortingState>(initialSorting);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
